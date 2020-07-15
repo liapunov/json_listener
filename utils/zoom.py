@@ -14,15 +14,8 @@ from jose import jwt
 from utils.translator import translate_to
 
 
-zoom_keys = {"claims": {
-                 "iss": "ZuC23b7ZRFilUXnz73vqLg",
-                 "exp": 0},
-             "header": {
-                 "alg": "HS256",
-                 "typ": "JWT"},
-             "access_token": "6BPe5pWAaJM3VFglAIkzWdEdZz5ArwOZ3Z0E"
-             }
-
+with open("./keys/zoom.json") as zoom_json_key:
+    zoom_keys = loads(zoom_json_key)
 
 # the base URL required to connect to the auth server on zoom.
 API_AUTH_URL = "https://api.zoom.us/v2/users"
